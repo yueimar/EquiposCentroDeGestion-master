@@ -1,21 +1,27 @@
 package com.app.IngresoEquipos.IngresoEquipos.servicio;
 
 import com.app.IngresoEquipos.IngresoEquipos.entidad.Equipos;
+import org.springframework.ui.Model;
 
 import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 public interface EquiposServicio {
 
+ /* Aca se declara el metodo para luego ser implementado por la clase EquiposServicioImpl*/
 
     List<Equipos> listarTodosLosEquipos();
 
-    public Equipos guardarEquipo(Equipos equipo);
+     Equipos guardarEquipo(Equipos equipo);
 
-    public Equipos obtenerEquipoPorId(Long id);
+    Equipos obtenerEquipoPorId(Long id);
 
-    public Equipos actualizarEstudiante(Equipos equipo);
+     Equipos actualizarEstudiante(Equipos equipo);
 
-    public void eliminarEstudiante(Long id);
+     void eliminarEstudiante(Long id);
+
+     //String listarEquiposTest();
+
+
 
 }

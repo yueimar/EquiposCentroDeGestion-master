@@ -90,6 +90,7 @@
                       <th >Nombre</th>
                       <th >Referencia</th>
                       <th >Nusuarios</th>
+                      <th >Nodo</th>
                       <th >FechaRegistro</th>
                       <th >Acciones</th>
                   </tr>
@@ -101,6 +102,7 @@
                       <td th:text="${equipo.nombre}">Nombre</td>
                       <td th:text="${equipo.referencia}">Referencia</td>
                       <td th:text="${equipo.Nusuarios}">Nusuarios</td>
+                      <td th:text="${equipo.nodo}"></td>
                       <td th:text="${#temporals.format(equipo.fechaRegistro,'dd/MM/YYYY hh:mm a')}">FechaRegistro</td>
                       <!--
                       <td th:text="${equipo.registDate}">Fecha</td>

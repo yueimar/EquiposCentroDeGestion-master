@@ -1,12 +1,11 @@
 package com.app.IngresoEquipos.IngresoEquipos.entidad;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity /*Se aplica a la clase e indica que esta clase Java es una entidad a persistir. Es una anotación estándar de JPA.
+En nuestro ejemplo estamos indicando que la clase Equipos es una entidad que se puede persistir.*/
 @Table(name = "radio")
 public class Equipos {
 
@@ -27,6 +26,9 @@ public class Equipos {
     @Column(name = "Nusuarios", nullable = false, length = 50)
     private int Nusuarios;
 
+    @Column(name = "nodo", nullable = false, length = 50)
+    private int nodo;
+
     @Column(name = "fechaRegistro")
     private LocalDateTime fechaRegistro;
 
@@ -41,20 +43,22 @@ public class Equipos {
 
     }
 
-    public Equipos(Long id, String nombre, String referencia, String ip, int nusuarios, LocalDateTime fechaRegistro) {
+    public Equipos(Long id, String nombre, String referencia, String ip, int nusuarios, int nodo, LocalDateTime fechaRegistro) {
         this.id = id;
         this.nombre = nombre;
         this.referencia = referencia;
         this.ip = ip;
-        Nusuarios = nusuarios;
+        this.Nusuarios = nusuarios;
+        this.nodo = nodo;
         this.fechaRegistro = fechaRegistro;
     }
 
-    public Equipos(String nombre, String referencia, String ip, int nusuarios, LocalDateTime fechaRegistro) {
+    public Equipos(String nombre, String referencia, String ip, int nusuarios, int nodo, LocalDateTime fechaRegistro) {
         this.nombre = nombre;
         this.referencia = referencia;
         this.ip = ip;
-        Nusuarios = nusuarios;
+        this.Nusuarios = nusuarios;
+        this.nodo = nodo;
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -98,6 +102,14 @@ public class Equipos {
         Nusuarios = nusuarios;
     }
 
+    public int getNodo() {
+        return nodo;
+    }
+
+    public void setNodo(int nodo) {
+        this.nodo = nodo;
+    }
+
     public LocalDateTime getFechaRegistro() {
         return fechaRegistro;
     }
@@ -120,6 +132,7 @@ public class Equipos {
                 ", referencia='" + referencia + '\'' +
                 ", ip='" + ip + '\'' +
                 ", Nusuarios='" + Nusuarios + '\'' +
+                ", nodo='" + Nusuarios + '\'' +
                 '}';
     }
 }

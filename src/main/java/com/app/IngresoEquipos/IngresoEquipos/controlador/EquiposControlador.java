@@ -3,15 +3,11 @@ package com.app.IngresoEquipos.IngresoEquipos.controlador;
 import com.app.IngresoEquipos.IngresoEquipos.entidad.Equipos;
 import com.app.IngresoEquipos.IngresoEquipos.servicio.EquiposServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 @Controller
 public class EquiposControlador {
@@ -45,6 +41,7 @@ public class EquiposControlador {
         return "equipos";
     }
 */
+
     @PostMapping("/equipos")
     public String guardarEquipo(@ModelAttribute("equipo") Equipos equipo, RedirectAttributes redirect){
         servicio.guardarEquipo(equipo);
@@ -66,6 +63,7 @@ public class EquiposControlador {
         equipoExistente.setNombre(equipo.getNombre());
         equipoExistente.setReferencia(equipo.getReferencia());
         equipoExistente.setNusuarios(equipo.getNusuarios());
+        equipoExistente.setNodo(equipo.getNodo());
         servicio.actualizarEstudiante(equipoExistente);
         redirect.addFlashAttribute("msgEditar","El equipo fue modificado con exito!!");
         return "redirect:/equipos";
@@ -85,5 +83,14 @@ public class EquiposControlador {
 
 
 
+    @GetMapping("/h")
+    public String mostrarHome(){
+        return "Home";
+    }
 
+
+    /*@GetMapping({"/equipoTest","/"})
+    public void listarEquiposTest() {
+        servicio.listarEquiposTest();
+    }*/
 }

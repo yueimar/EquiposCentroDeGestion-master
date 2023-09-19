@@ -8,27 +8,32 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EquiposServicioImpl implements EquiposServicio{
+public class EquiposServicioImpl implements EquiposServicio {
 
     @Autowired
     private EquiposRepositorio repositorio;
 
+    /*
+    * Aca le damos el comportamiento a los metodos
+    * */
     @Override
     public List<Equipos> listarTodosLosEquipos() {
+
         /*
         if (palabraClave != null) {
             return repositorio.findAll(palabraClave);
         }
 
          */
-        return repositorio.findAll();
+        List<Equipos> equiposEncontrados = repositorio.findAll();
+
+        return equiposEncontrados;
     }
 
     @Override
     public Equipos guardarEquipo(Equipos equipo) {
         return repositorio.save(equipo);
     }
-
     @Override
     public Equipos obtenerEquipoPorId(Long id) {
         return repositorio.findById(id).get();
@@ -44,6 +49,12 @@ public class EquiposServicioImpl implements EquiposServicio{
         repositorio.deleteById(id);
     }
 
+    /*@Override
+    public String listarEquiposTest() {
+        List<Equipos> equiposEncontrados = repositorio.findAll();
+        model.addAttribute("equipos", equiposEncontrados);
+        return "equipos";
+    }*/
 
 
 }
