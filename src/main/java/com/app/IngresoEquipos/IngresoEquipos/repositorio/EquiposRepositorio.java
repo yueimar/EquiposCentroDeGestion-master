@@ -10,11 +10,15 @@ import java.util.List;
 @Repository
 public interface EquiposRepositorio extends JpaRepository<Equipos, Long> {
 
-/*
-    @Query("SELECT e FROM Equipos e WHERE e.nombre LIKE %?1%"
-    +"OR e.ip LIKE %?1%"
-            +"OR e.nombre LIKE %?1%")
+
+
+    @Query("SELECT e FROM Equipos e WHERE " +
+            "e.nombre LIKE %?1%"
+            +"OR e.ip LIKE %?1%"
+            +"OR e.referencia LIKE %?1%"
+            +"OR e.autorizacion LIKE %?1%"
+    )
     public List<Equipos> findAll(String palabraClave);
 
- */
+
 }

@@ -1,9 +1,7 @@
 package com.app.IngresoEquipos.IngresoEquipos.servicio;
 
 import com.app.IngresoEquipos.IngresoEquipos.entidad.Equipos;
-import org.springframework.ui.Model;
 
-import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 public interface EquiposServicio {
@@ -12,11 +10,17 @@ public interface EquiposServicio {
 
     List<Equipos> listarTodosLosEquipos();
 
-     Equipos guardarEquipo(Equipos equipo);
+    List<Equipos> ListarEquiposPorPalabraClave(String palabraClave);
+
+    /*
+    * Aca le damos el comportamiento a los metodos
+    * */
+
+    Equipos guardarEquipo(Equipos equipo);
 
     Equipos obtenerEquipoPorId(Long id);
 
-     Equipos actualizarEstudiante(Equipos equipo);
+     Equipos actualizarEquipo(Equipos equipo);
 
      void eliminarEstudiante(Long id);
 

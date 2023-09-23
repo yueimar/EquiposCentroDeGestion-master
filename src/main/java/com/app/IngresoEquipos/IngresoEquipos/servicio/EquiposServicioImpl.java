@@ -13,21 +13,22 @@ public class EquiposServicioImpl implements EquiposServicio {
     @Autowired
     private EquiposRepositorio repositorio;
 
+
     /*
     * Aca le damos el comportamiento a los metodos
     * */
+
+
     @Override
     public List<Equipos> listarTodosLosEquipos() {
-
-        /*
-        if (palabraClave != null) {
-            return repositorio.findAll(palabraClave);
-        }
-
-         */
         List<Equipos> equiposEncontrados = repositorio.findAll();
-
         return equiposEncontrados;
+    }
+
+    @Override
+    public List<Equipos> ListarEquiposPorPalabraClave(String palabraClave) {
+        List<Equipos> equipoEncontradoPorPalabraClave = repositorio.findAll(palabraClave);
+        return equipoEncontradoPorPalabraClave;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class EquiposServicioImpl implements EquiposServicio {
     }
 
     @Override
-    public Equipos actualizarEstudiante(Equipos equipo) {
+    public Equipos actualizarEquipo(Equipos equipo) {
         return repositorio.save(equipo);
     }
 

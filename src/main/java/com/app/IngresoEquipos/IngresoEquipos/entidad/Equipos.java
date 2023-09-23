@@ -29,9 +29,14 @@ public class Equipos {
     @Column(name = "nodo", nullable = false, length = 50)
     private int nodo;
 
+    @Column(name = "frecuencia", nullable = false, length = 200)
+    private int frecuencia;
+
+    @Column(name = "autorizacion", nullable = false, length = 200)
+    private String autorizacion;
+
     @Column(name = "fechaRegistro")
     private LocalDateTime fechaRegistro;
-
 
     /*
     @Column(name = "REGIST_DATE",nullable = false)
@@ -43,22 +48,26 @@ public class Equipos {
 
     }
 
-    public Equipos(Long id, String nombre, String referencia, String ip, int nusuarios, int nodo, LocalDateTime fechaRegistro) {
+    public Equipos(Long id, String nombre, String referencia, String ip, int nusuarios, int nodo, int frecuencia, String autorizacion, LocalDateTime fechaRegistro) {
         this.id = id;
         this.nombre = nombre;
         this.referencia = referencia;
         this.ip = ip;
         this.Nusuarios = nusuarios;
         this.nodo = nodo;
+        this.frecuencia = frecuencia;
+        this.autorizacion = autorizacion;
         this.fechaRegistro = fechaRegistro;
     }
 
-    public Equipos(String nombre, String referencia, String ip, int nusuarios, int nodo, LocalDateTime fechaRegistro) {
+    public Equipos(String nombre, String referencia, String ip, int nusuarios, int nodo, int frecuencia, String autorizacion, LocalDateTime fechaRegistro) {
         this.nombre = nombre;
         this.referencia = referencia;
         this.ip = ip;
         this.Nusuarios = nusuarios;
         this.nodo = nodo;
+        this.frecuencia = frecuencia;
+        this.autorizacion = autorizacion;
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -110,6 +119,22 @@ public class Equipos {
         this.nodo = nodo;
     }
 
+    public int getFrecuencia(){
+        return frecuencia;
+    }
+
+    public void setFrecuencia(int frecuencia){
+        this.frecuencia = frecuencia;
+    }
+
+    public String getAutorizacion(){
+        return autorizacion;
+    }
+
+    public void setAutorizacion(String autorizacion){
+        this.autorizacion = autorizacion;
+    }
+
     public LocalDateTime getFechaRegistro() {
         return fechaRegistro;
     }
@@ -124,15 +149,5 @@ public class Equipos {
         fechaRegistro = LocalDateTime.now();
     }
 
-    @Override
-    public String toString() {
-        return "Equipos{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", referencia='" + referencia + '\'' +
-                ", ip='" + ip + '\'' +
-                ", Nusuarios='" + Nusuarios + '\'' +
-                ", nodo='" + Nusuarios + '\'' +
-                '}';
-    }
+
 }
